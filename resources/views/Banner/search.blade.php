@@ -91,7 +91,7 @@
                     <div id="add-hide-show-div" >
                         <div class="row">
                             <div class="col-lg-12" id="printPageButton">
-                                <h2 class="text-center">Language</h2>
+                                <h2 class="text-center">Add Vouchers</h2>
                                  
                                 <!--<input type="button" id="" value="ADD A DRIVER" class="add-btn">-->
                             </div>
@@ -99,66 +99,68 @@
                         <hr /> 
                 <div class="vouchers" >
                     <div class="container">
+                   
+                        <form class="form-inline" method="post" action="{{ route('banner-search') }}">
+                            @csrf
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="admin-nir-table" >
+                                <tbody>
+                                    <tr>
+                                     
+                                        <td width="15%"><input class="form-control mr-sm-2" type="search" placeholder="Search" name="search" aria-label="Search"></td>
+                                      
+                                        <td width="12%">
+                                            <input type="submit" value="Search" class="btn btn-success my-2 my-sm-0"   title="Search" />
+                                            <input type="button" value="Reset" class="btn btn-primary my-2 my-sm-0" />
+                                        </td>
+                                        <td width="30%">
+                                     <a class="btn btn-dark" href="{{ route('banner-index') }}" style="text-align: center;">BAck to Listing</a>
+                 
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
                        <hr class="set_hr">
                         <div class="voucher_table">
                             <div class="voucher-table-heading" id="printPageButton" >
-                                <h3>Add Language Label</h3>
+                                <h3>Vouchers</h3>
                                 <!--<button type="button" onclick="window.print()" class="btn "><i class="fa fa-print"></i> Export</button>-->
-                              <a id="down" href="{{ route('index') }}"> <button type="button"  class="btn "><i class="fa fa-download"></i> Back to Listing</button></a>
+                              <a id="down" href="#"> <button type="button"  class="btn "><i class="fa fa-download"></i> Export</button></a>
                             </div>
                             <div style="clear:both;"></div>
-                                <form method="post" action="{{ route('create') }}">
-                                    @csrf
-                                    <div class="row">
-                                        <div class="col-lg-12" id="errorMessage">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <label>Language Label<span class="red"> *</span></label>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <input type="text" class="form-control" name="label"   value="" placeholder="Please Enter to this formate => LBL_" required>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <label>English Value </label>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <input type="text" class="form-control" name="value_en" id="value_en" value="" placeholder="English Value" >
-                                            </div>
-                                    </div>                                                                                                                  
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <label>عربى Value <span class="red"> *</span></label>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <input type="text" class="form-control" name="value_ar" id="value_ar" value="" placeholder="عربى Value" required>
-                                        </div>
-                                    <div class="col-lg-2">
-                                            <button type ="button" name="allLanguage" id="allLanguage" class="btn btn-primary" >Convert To All Language</button>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <button type ="button" name="allLanguage" id="allLanguage" class="btn btn-primary" >Copy عربى To All</button>
-                                        </div>
-                                    </div> <br>
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <input type="submit" class="btn btn-default" name="submit" id="submit" value="Add Label">
-                                            <input type="reset" value="Reset" class="btn btn-default">
-                                            <a href="{{ route('index') }}" class="btn btn-default ">Cancel</a>
-                                        </div>  
-                                    </div>                                        
+                            <div class="table-responsive">
+                                <form class="_list_form" id="_list_form" method="post" action="/admin/languages.php">
+                                    <table class="table table-striped table-bordered table-hover dd-tt">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>image</th>
+                                                <th>Title</th>
+                                                <th>Text</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($data as $item)
+                                            <tr class="gradeA">
+                                                <td>{{ $item->id }}</td>
+                                                <td><img src="{{asset('images/'.$item->image)}}" style="height:70px; width:70px;"></td>
+                                                <td>{{ $item->title }}</td>									
+                                                <td>{{ $item->text }}</td>
+                                                <td>{{ $item->status }}</td>
+                                                          
+                                            @endforeach
+                                        </tbody>
+                                    </table>
                                 </form>
-                            </div>
+                               </div>
                         </div> <!--TABLE-END-->
                     </div>
                 </div>
-            </div>
-        </div>
+                        </div>
+                    </div>
                     
-    </div>
+                </div>
                  
                 
                 <!--echo $orgNameArr[$db_organization[$g]];-->

@@ -91,7 +91,7 @@
                     <div id="add-hide-show-div" >
                         <div class="row">
                             <div class="col-lg-12" id="printPageButton">
-                                <h2 class="text-center">Language</h2>
+                                <h2 class="text-center">Banner</h2>
                                  
                                 <!--<input type="button" id="" value="ADD A DRIVER" class="add-btn">-->
                             </div>
@@ -102,52 +102,61 @@
                        <hr class="set_hr">
                         <div class="voucher_table">
                             <div class="voucher-table-heading" id="printPageButton" >
-                                <h3>Add Language Label</h3>
+                                <h3>Edit Banner</h3>
                                 <!--<button type="button" onclick="window.print()" class="btn "><i class="fa fa-print"></i> Export</button>-->
-                              <a id="down" href="{{ route('index') }}"> <button type="button"  class="btn "><i class="fa fa-download"></i> Back to Listing</button></a>
+                              <a id="down" href=""> <button type="button"  class="btn "><i class="fa fa-download"></i> Back to Listing</button></a>
                             </div>
                             <div style="clear:both;"></div>
-                                <form method="post" action="{{ route('create') }}">
+                                <form method="post" action="{{ route('banner-update',$data->id) }}"  enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
                                         <div class="col-lg-12" id="errorMessage">
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <img src="{{asset('images/'.$data->image)}}" style="height:70px; width:70px;">
+                                    </div>
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <label>Language Label<span class="red"> *</span></label>
+                                            <label>Image<span class="red"> *</span></label>
                                         </div>
                                         <div class="col-lg-6">
-                                            <input type="text" class="form-control" name="label"   value="" placeholder="Please Enter to this formate => LBL_" required>
+                                            <input type="file" name="image" 
+                                             class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <label>English Value </label>
+                                            <label>Title</label>
                                         </div>
                                         <div class="col-lg-6">
-                                            <input type="text" class="form-control" name="value_en" id="value_en" value="" placeholder="English Value" >
+                                            <input type="text" class="form-control" name="title" id="tiile" value="{{ $data->title }}" placeholder="Enter Title" >
                                             </div>
                                     </div>                                                                                                                  
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <label>عربى Value <span class="red"> *</span></label>
+                                            <label>Text<span class="red"> *</span></label>
                                         </div>
                                         <div class="col-lg-6">
-                                            <input type="text" class="form-control" name="value_ar" id="value_ar" value="" placeholder="عربى Value" required>
+                                            <textarea name="text" value="" cols="30" rows="10">{{ $data->text }} </textarea>
                                         </div>
-                                    <div class="col-lg-2">
-                                            <button type ="button" name="allLanguage" id="allLanguage" class="btn btn-primary" >Convert To All Language</button>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <button type ="button" name="allLanguage" id="allLanguage" class="btn btn-primary" >Copy عربى To All</button>
-                                        </div>
-                                    </div> <br>
+                                  
+                                        
+                                    </div>
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <input type="submit" class="btn btn-default" name="submit" id="submit" value="Add Label">
+                                            <div class="form-control">
+                                                <input type="radio" name="status" value="active " {{ $data->status == 'active' ? 'checked' : '' }}  id="actice" /><label for="" class="">Active</label>
+                                                <input type="radio" name="status" value="deactive" {{ $data->status == 'deactive' ? 'checked' : '' }}  id="deactive" /><label for="" class="">De-Active</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <input type="submit" class="btn btn-default" value="Update Banner">
                                             <input type="reset" value="Reset" class="btn btn-default">
-                                            <a href="{{ route('index') }}" class="btn btn-default ">Cancel</a>
+                                            <a href="" class="btn btn-default ">Cancel</a>
                                         </div>  
                                     </div>                                        
                                 </form>
