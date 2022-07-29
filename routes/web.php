@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VoucherCodeController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\ProviderController;
+use App\Http\Controllers\CompanyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,3 +45,13 @@ Route::post('/banner/search',[BannerController::class,'banner_search'])->name('b
 Route::get('/banner/edit/{id}',[BannerController::class,'banner_edit'])->name('banner-edit');
 Route::get('/banner/delete/{id}',[BannerController::class,'banner_delete'])->name('banner-delete');
 Route::post('/banner/update/{id}',[BannerController::class,'banner_update'])->name('banner-update');
+
+
+//Provider
+Route::get('/provider/list',[ProviderController::class,'provider_index'])->name('provider-index');
+Route::get('/provider/show',[ProviderController::class,'provider_show'])->name('provider-show');
+
+//Companyy
+Route::get('/company/list',[CompanyController::class,'company_index'])->name('company-index');
+Route::get('/company/show',[CompanyController::class,'company_show'])->name('company-show');
+
