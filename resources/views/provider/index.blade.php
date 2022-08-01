@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <title> Vouchers</title>
@@ -143,16 +144,38 @@
                                                 <th>Mobile</th>
                                                 <th>Wallet Balance</th>
                                                 <th>View/Edit Document(s)</th>
-                                                <th>Manage Services</th>
                                                 <th>View/Edit Availability</th>
                                                 <th>Status</th>
-                                                <th>IsFeatured</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                          
-                                             
+                                             @foreach ($list as $item)
+                                                 <tr>
+                                                    <td>{{ $item->first_name }} {{  $item->last_name }}</td>
+                                                    <td>{{ $item->company }}</td>
+                                                    <td>{{ $item->email }}</td>
+                                                    <td>1</td>
+                                                    <td>{{ $item->created_at }}</td>
+                                                    <td>{{ $item->phone }}</td>
+                                                    <td style="text-align: center">
+                                                        <a href=""><i class="fa-solid fa-plus"></a></i> <br>
+                                                        <a href=""><i class="fa-solid fa-minus"> </a></i>
+                                                    </td>
+                                                    <td style="text-align: center">
+                                                        <a href="" ><i class="fa-solid fa-file"></a></i>
+                                                    </td>
+                                                    <td>
+                                                        <a href="">Edit Availability</a>
+                                                    </td>
+                                                    <td>Deactive</td>
+                                                    <td>
+                                                        <a href="{{ route('provider-edit',$item->id) }}" class="btn btn-primary" ><i class="fa-solid fa-square-pen"></i></a>
+                                                        <a href="{{ route('provider-delete',$item->id) }}"><i class="fa-solid fa-trash-can"></i></a>
+                                                    </td>
+                                                 </tr>
+                                             @endforeach
                                            
                                         </tbody>
                                     </table>

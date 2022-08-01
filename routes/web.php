@@ -51,6 +51,9 @@ Route::post('/banner/update/{id}',[BannerController::class,'banner_update'])->na
 Route::get('/provider/list',[ProviderController::class,'provider_index'])->name('provider-index');
 Route::get('/provider/show',[ProviderController::class,'provider_show'])->name('provider-show');
 Route::post('/provider/create',[ProviderController::class,'provider_create'])->name('provider-create');
+Route::get('/provider/edit/{id}',[ProviderController::class,'provider_edit'])->name('provider-edit');
+Route::get('/provider/delete/{id}',[ProviderController::class,'provider_delete'])->name('provider-delete');
+Route::post('/provider/update/{id}',[ProviderController::class,'provider_update'])->name('provider-update');
 
 //Companyy
 Route::get('/company/list',[CompanyController::class,'company_index'])->name('company-index');

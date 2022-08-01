@@ -21,37 +21,38 @@
             <div class="col-md-6 mt-5">
                
                 <hr> 
-                <form action="{{ route('provider-create') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('provider-update',$provider->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="exampleInputFirstName">First Name</label>
-                                    <input type="Text" class="form-control" name="first_name" id=" " aria-describedby="emailHelp" placeholder="Enter First Name">
+                                    <input type="Text" class="form-control" name="first_name" id=" " aria-describedby="emailHelp" value="{{ $provider->first_name }}" placeholder="Enter First Name">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputLastName">Last Name</label>
-                                    <input type="Text" class="form-control" name="last_name" id="" aria-describedby="emailHelp" placeholder="Enter Last Name">
+                                    <input type="Text" class="form-control" name="last_name" id="" aria-describedby="emailHelp" value="{{ $provider->first_last }}" placeholder="Enter Last Name" >
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword">Email</label>
-                                    <input type="Email" class="form-control" name="email" id="" placeholder="Enter Email">
+                                    <input type="Email" class="form-control" name="email" id="" value="{{ $provider->email }}"placeholder="Enter Email">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="exampleInputPassword">Password</label>
-                                    <input type="password" class="form-control" name="password" id="" placeholder="Password">
+                                    <input type="password" class="form-control" name="password" value="{{ $provider->password }}" id="" placeholder="Password">
                                 </div>         
                                 <label for="exampleFormControlFile1">Select Gender</label>
                                 <div class="form-group">
-                                    <input  type="radio" name="r_gender" id="" value="Male">
+                                    <input  type="radio" name="r_gender" id="" value="{{ $provider->gender }}">
                                     <label  for="inlineRadio1">Male</label>
                                 </div>
                                 <div class="form-group">
-                                    <input  type="radio" name="r_gender" id="" value="Female">
+                                    <input  type="radio" name="r_gender" id="" value="{{ $provider->gender }}">
                                     <label  for="inlineRadio1">Female</label>
                                 </div>      
+                               
                            
                                 <div class="form-group">
                                     <label for="exampleFormControlFile1">Select Image</label>
@@ -61,32 +62,32 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputLastName">Phone Number</label>
-                                <input type="text" class="form-control" id="" aria-describedby="emailHelp" name="phone" placeholder="Phone Number">
+                                <input type="text" class="form-control" id="" aria-describedby="emailHelp" value="{{ $provider->phone }}" name="phone" placeholder="Phone Number">
                             </div>       
                             <div class="form-group">
                                 <label for="exampleInputLastName">Address</label>
-                                <input type="Text" class="form-control" name="address" id="" aria-describedby="emailHelp" placeholder="Enter Address">
+                                <input type="Text" class="form-control" name="address" id="" aria-describedby="emailHelp" value="{{ $provider->address }}"placeholder="Enter Address">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputLastName">Zip Code</label>
-                                <input type="number" class="form-control" name="zip_code" id="" aria-describedby="emailHelp" placeholder="Enter Zip Code">
+                                <input type="number" class="form-control" name="zip_code" id="" value="{{ $provider->zip_code }}" aria-describedby="emailHelp" placeholder="Enter Zip Code">
                             </div>   
                                 
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Company</label>
-                                        <select name="company" class="form-control">
-                                           
-                                            @foreach ($company as $item)
-                                            <option value="{{$item->company_name}}">{{$item->company_name}}</option>
-                                            @endforeach
+                                        <select name="company_name" class="form-control">
+                                           <option>{{$provider->company_name}}</option>
+                                           @foreach ($company as $item)
+                                           <option value="{{$item->company_name}}">{{$item->company_name}}</option>
+                                           @endforeach
                                         </select>
                                     </div>   
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Select Language</label>
                                         <select name="language" class="form-control">
-                                            
+                                            <option>{{$provider->language_name}}</option>
                                             @foreach ($language as $item)
                                             <option value="{{$item->language_name}}">{{$item->language_name}}</option>
                                             @endforeach
@@ -95,7 +96,7 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Select Currency</label>
                                         <select name="currency" class="form-control">
-                                            
+                                            <option>{{$provider->currency_name}}</option>
                                             @foreach ($currency as $item)
                                             <option value="{{$item->currency_name}}">{{$item->currency_name}}</option>
                                             @endforeach
@@ -106,6 +107,7 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1" >Select Country</label>
                                         <select class="form-control" name="country" id="">
+                                            <option>{{ $provider->country }}</option>
                                             <option>India</option>
                                             <option>Arabia</option>
                                             <option>Pakistan</option>
@@ -114,6 +116,7 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1" >Select State</label>
                                         <select class="form-control" name="state" id="">
+                                            <option>{{ $provider->state }}</option>
                                             <option>Pnjab</option>
                                             <option>Sindh</option>
                                             <option>Balochistan</option>
@@ -122,6 +125,7 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Select City</label>
                                         <select class="form-control" id="" name="city">
+                                        <option>{{ $provider->city }}</option>
                                         <option>Lahore</option>
                                         <option>Karachi</option>
                                         <option>Multan</option>
@@ -134,34 +138,74 @@
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label for="exampleInputFirstName">Payment Email</label>
-                                        <input type="email" class="form-control" name="payment_mail" id=" " aria-describedby="emailHelp" placeholder="Enter Payment Email">
+                                        <input type="email" class="form-control" name="payment_mail" id=" " 
+                                        @if (!isset($bank))
+                                        value = ""    
+                                        @else
+                                        value="{{ $bank->payment_email }}"    
+                                        @endif
+                                        aria-describedby="emailHelp" placeholder="Enter Payment Email">
                                     </div>
-                                    <div class="form-group">
+                                      <div class="form-group">
                                         <label for="exampleInputFirstName">Account Holder Name</label>
-                                        <input type="text" class="form-control" name="holder_name" id=" " aria-describedby="emailHelp" placeholder="Enter Account Holder Name">
+                                        <input type="text" class="form-control" name="holder_name" id=" " 
+                                        @if (!isset($bank))
+                                        value = ""    
+                                        @else
+                                        value="{{ $bank->account_name }}"    
+                                        @endif aria-describedby="emailHelp" placeholder="Enter Account Holder Name">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputFirstName">Account Number</label>
-                                        <input type="number" class="form-control" name="account_number" id=" " aria-describedby="emailHelp" placeholder="Enter Account Number">
+                                        <input type="number" class="form-control" name="account_number" id=" "
+                                        @if (!isset($bank))
+                                        value = ""    
+                                        @else
+                                        value="{{ $bank->account_number }}"    
+                                        @endif aria-describedby="emailHelp" placeholder="Enter Account Number">
                                     </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="exampleInputFirstName">Bank Name</label>
-                                            <input type="text" class="form-control" name="bank_name" id=" " aria-describedby="emailHelp" placeholder="Enter Bank Name">
+                                            <input type="text" class="form-control" name="bank_name" id=" " 
+                                            @if (!isset($bank))
+                                            value = ""    
+                                            @else
+                                            value="{{ $bank->bank_name }}"    
+                                            @endif
+                                            aria-describedby="emailHelp" placeholder="Enter Bank Name">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputFirstName">Bank Location</label>
-                                            <input type="text" class="form-control" name="location" id=" " aria-describedby="emailHelp" placeholder="Enter Bank Location">
+                                            <input type="text" class="form-control" name="location" id=" " 
+                                            @if (!isset($bank))
+                                            value = ""    
+                                            @else
+                                            value="{{ $bank->location }}"    
+                                            @endif
+                                            aria-describedby="emailHelp" placeholder="Enter Bank Location">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputFirstName">BIC/SWIFT Code</label>
-                                            <input type="number" class="form-control" name="bic_code" id=" " aria-describedby="emailHelp" placeholder="Enter Code">
+                                            <input type="number" class="form-control" name="bic_code" id=" " 
+                                            @if (!isset($bank))
+                                            value = ""    
+                                            @else
+                                            value="{{ $bank->bit_code }}"    
+                                            @endif
+                                            aria-describedby="emailHelp" placeholder="Enter Code">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputFirstName">Service Description</label>
-                                            <textarea name="description" id="" cols="30" rows="10"></textarea>
-                                        </div>
+                                            <textarea name="description" id="" cols="30" rows="10">
+                                                @if (!isset($bank))
+                                                  
+                                                @else
+                                               {{ $bank->bank_description }}
+                                                @endif    
+                                            </textarea>
+                                        </div> 
                                 </div>
                                 
                             </div>

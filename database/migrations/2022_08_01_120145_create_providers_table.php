@@ -28,18 +28,10 @@ return new class extends Migration
             $table->integer('zip_code');
             $table->integer('phone');
             $table->string('wallet')->nullable();
-            $table->unsignedBigInteger('company_id');
-            $table->foreign('company_id')->references('id')->on('companies')->onUpdate(
-            'cascade')->onDelete('cascade');
-            $table->unsignedBigInteger('language_id');
-            $table->foreign('language_id')->references('id')->on('languages')->onUpdate(
-            'cascade')->onDelete('cascade');
-            $table->unsignedBigInteger('currency_id');
-            $table->foreign('currency_id')->references('id')->on('currencies')->onUpdate(
-            'cascade')->onDelete('cascade');
-            $table->unsignedBigInteger('document_id');
-            $table->foreign('document_id')->references('id')->on('documents')->onUpdate(
-            'cascade')->onDelete('cascade');
+            $table->string('company');       
+            $table->string('language');
+            $table->string('currency');
+            $table->string('document')->nullable();
             $table->timestamps();
         });
     }
