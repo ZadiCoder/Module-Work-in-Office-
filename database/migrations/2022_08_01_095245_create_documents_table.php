@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('providers', function (Blueprint $table) {
-            $table->id();
+        Schema::create('documents', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('image');
+            $table->date('expiry_date')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('providers');
+        Schema::dropIfExists('documents');
     }
 };

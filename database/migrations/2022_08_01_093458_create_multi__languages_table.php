@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('languages', function (Blueprint $table) {
+        Schema::create('multi__languages', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('code', 10);
             $table->string('value_en', 200);
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('languages');
+        Schema::dropIfExists('multi__languages');
     }
 };

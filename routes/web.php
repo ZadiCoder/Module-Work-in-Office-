@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VoucherCodeController;
-use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\MultiLanguageController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\CompanyController;
@@ -24,17 +24,17 @@ Route::post('/voucher/update/{id}',[VoucherCodeController::class,'update'])->nam
 Route::get('/voucher/delete/{id}',[VoucherCodeController::class,'delete'])->name('delete');
 
 //Languages
-Route::get('/list',[LanguageController::class,'index'])->name('index');
+Route::get('/list',[MultiLanguageController::class,'index'])->name('index');
 Route::get('/add',function(){
     return view('language.addLang');
 })->name('addLang');
 
 //Route::post('/create',[LanguageController:class,'create'])->name('create');
 
-Route::post('/create',[LanguageController::class,'create'])->name('create');
-Route::get('/edit/{id}',[LanguageController::class,'edit'])->name('edit');
-Route::post('/update/{id}',[LanguageController::class,'update'])->name('update');
-Route::post('/search',[LanguageController::class,'search'])->name('search');
+Route::post('/create',[MultiLanguageController::class,'create'])->name('create');
+Route::get('/edit/{id}',[MultiLanguageController::class,'edit'])->name('edit');
+Route::post('/update/{id}',[MultiLanguageController::class,'update'])->name('update');
+Route::post('/search',[MultiLanguageController::class,'search'])->name('search');
 
 
 //Banner 
@@ -50,6 +50,7 @@ Route::post('/banner/update/{id}',[BannerController::class,'banner_update'])->na
 //Provider
 Route::get('/provider/list',[ProviderController::class,'provider_index'])->name('provider-index');
 Route::get('/provider/show',[ProviderController::class,'provider_show'])->name('provider-show');
+Route::post('/provider/create',[ProviderController::class,'provider_create'])->name('provider-create');
 
 //Companyy
 Route::get('/company/list',[CompanyController::class,'company_index'])->name('company-index');
