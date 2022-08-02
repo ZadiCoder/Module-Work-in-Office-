@@ -14,10 +14,16 @@
     <div class="container">
         <h1 class="text-center"> Documents</h1>
         <hr>
-         <h3>Documents of {{ $provider->first_name }} {{ $provider->last_name }}</h3>
+        <div class="text-right">
+            <a href="{{ url('/provider/decument/work/show/'.$provider->id) }}" class="btn btn-primary" >View Work</a>
+            <a href="{{ route('provider-index') }}" class="btn btn-success" >Back to Provider List</a>
+        </div>
+         <h3>Documents of {{ $provider->first_name.' '.$provider->last_name }}</h3>
+     
+         
         <div class="row">
             <div class="col-md-4 mt-5">
-                <form action="{{ route('provider-create-work') }}" method="POST">
+                <form action="{{ route('provider-create-work') }}" method="POST" enctype="multipart/form-data">
                     @csrf       
                     <div class="card" style="width:350px">
                         <div class="card-header">Work Experience Letter</div>
@@ -30,6 +36,8 @@
                                 <label for="exp">EXP. DATE</label>
                                 <div class="form-group">
                                     <input type="date" name="exp" id="" class="col-md-10">
+                                    <input type="hidden" name="name" value="Work Experience">
+                                    <input type="hidden" name="provider_id" value="{{ $provider->id }}">
                                 </div>
                                 <button type="submit" class="btn btn-info ">Submit</button>                       
                         </div>
@@ -37,7 +45,7 @@
                 </form>
             </div>
             <div class="col-md-4 mt-5">
-                <form action="{{ route('provider-create-licenses') }}" method="POST">
+                <form action="{{ route('provider-create-work') }}" method="POST" enctype="multipart/form-data">
                     @csrf       
                     <div class="card" style="width:300px">
                         <div class="card-header">Driving License</div>
@@ -49,10 +57,10 @@
                                 <label for="exp">EXP. DATE</label>
                                 <div class="form-group">
                                     <input type="date" name="exp" id="" class="col-md-10">
+                                    <input type="hidden" name="name" value="Driving License">
+                                    <input type="hidden" name="provider_id" value="{{ $provider->id }}">
                                 </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-info text-center">Submit</button>
-                                </div>
+                                <button type="submit" class="btn btn-info text-center">Submit</button>       
                         </div>
                     </div>
                 </form>

@@ -7,8 +7,8 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\BankController;
-use App\Http\Controllers\DocumentDriverController;
-use App\Http\Controllers\DocumentLicenseController;
+use App\Http\Controllers\DocumentController;
+
 
 
 /*
@@ -59,13 +59,15 @@ Route::post('/provider/create',[ProviderController::class,'provider_create'])->n
 Route::get('/provider/edit/{id}',[ProviderController::class,'provider_edit'])->name('provider-edit');
 Route::get('/provider/delete/{id}',[ProviderController::class,'provider_delete'])->name('provider-delete');
 Route::post('/provider/update/{id}',[ProviderController::class,'provider_update'])->name('provider-update');
+Route::post('/provider/search',[ProviderController::class,'provider_search'])->name('provider-search');
+
 //provider Bank
 Route::get('/provider/bank/edit/{id}',[BankController::class,'provider_bank_edit'])->name('provider-bank-edit');
 Route::post('/provider/bank/update/{id}',[BankController::class,'provider_bank_update'])->name('provider-bank-update');
 //provider Documents
 Route::get('/provider/decument/show/{id}',[ProviderController::class,'provider_document_show'])->name('provider-document-show');
-Route::post('/provider/decument/work-experience',[DocumentDriverController::class,'provider_create_work'])->name('provider-create-work');
-Route::post('/provider/decument/license',[DocumentLicenseController::class,'provider_create_license'])->name('provider-create-licenses');
+Route::post('/provider/decument/work-experience',[DocumentController::class,'provider_create_work'])->name('provider-create-work');
+Route::get('/provider/decument/work/show/{id}',[DocumentController::class,'provider_show_work'])->name('provider-show-work');
 
 
 //Companyy

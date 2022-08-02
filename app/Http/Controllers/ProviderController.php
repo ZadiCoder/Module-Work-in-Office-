@@ -21,12 +21,7 @@ class ProviderController extends Controller
         return view('provider.add_provider',compact('company','language','currency'));
     }
     public function provider_create(Request $request){
-        //dd($request->input());
-        // $request->validate([
-        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        //     'title' => 'required',
-        //     'text' => 'required'
-        // ]);
+   
             $data = array(
                 'first_name'=>$request->first_name,
                 'last_name'=>$request->last_name,
@@ -103,27 +98,7 @@ class ProviderController extends Controller
         }
    
             Provider::where('id',$id)->update($data);
-        //   $data = array(
-        //     'payment_email'=>$request->payment_mail,
-        //     'account_name'=>$request->holder_name,
-        //     'bank_name'=>$request->bank_name,
-        //     'location'=>$request->location,
-        //     'account_number'=>$request->account_number,
-        //     'bit_code'=>$request->bic_code,
-        //     'bank_description'=>$request->description,
-    
-        // );
-      // Bank::where('provider_id',$id)->update($data);
-    // $bank_data =  Bank::where('provider_id',$id);
-    // $bank_data->payment_email = $request->payment_mail;
-    // $bank_data->account_name = $request->holder_name;
-    // $bank_data->bank_name = $request->bank_name;
-    // $bank_data->location = $request->location;
-    // $bank_data->account_number = $request->account_number;
-    // $bank_data->bit_code = $request->bic_code;
-    // $bank_data->bank_description = $request->description;
-    // $bank_data->update();
-  //  dd($bank_data->get());
+
    
     return redirect()->route('provider-index');
     }
@@ -137,4 +112,13 @@ class ProviderController extends Controller
             $provider = Provider::find($id);
         return view('provider.document.index',compact('provider'));
     }
+    public function provider_search(Request $request){
+        //  dd($request->input('search'));
+        $search = $request->search;
+        $data = Company::where('company_name', $search)
+       // ->orWhere('value_ar', $search)
+        ->get();
+         //dd($data);
+         return view('provider.search',compact('data'));
+      }
 }

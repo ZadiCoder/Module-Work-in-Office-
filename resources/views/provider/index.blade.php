@@ -96,14 +96,14 @@
                                  
                                 <!--<input type="button" id="" value="ADD A DRIVER" class="add-btn">-->
                             </div>
-                        </div>
+                        </div> 
                         <hr /> 
                 <div class="vouchers" >
                     <div class="container">
                    
-                        <form class="form-inline" method="post" action="">
+                        <form class="form-inline" method="post" action="{{ route('provider-search') }}">
                             @csrf
-                            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="admin-nir-table" >
+                            <table width="100%"  cellpadding="0" cellspacing="0" class="admin-nir-table" >
                                 <tbody>
                                     <tr>
                                         <td width="5%"><label for="textfield"><strong>Search:</strong></label></td>
