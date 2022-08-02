@@ -75,36 +75,46 @@ class ProviderController extends Controller
        return view('provider.edit_provider',compact('company','language','currency','provider','bank'));
     }
 
-    public function provider_update(Request $request){
+    public function provider_update(Request $request, $id){
        // dd($request->input());
-       $id = $request->id;
-       $data = array(
-        'first_name'=>$request->first_name,
-        'last_name'=>$request->last_name,
-        'email'=>$request->email,
-        'password'=>$request->password,
-        'gender'=>$request->r_gender,
-        'country'=>$request->country,
-        'state'=>$request->state,
-        'city'=>$request->city,
-        'address'=>$request->address,
-        'zip_code'=>$request->zip_code,
-        'phone'=>$request->phone,
-        'company'=>$request->company_name,
-        'language'=>$request->language,
-        'currency'=>$request->currency,
+      // $id = $request->id;
+        $data = array(
+            'first_name'=>$request->first_name,
+            'last_name'=>$request->last_name,
+            'email'=>$request->email,
+            'password'=>$request->password,
+            'gender'=>$request->r_gender,
+            'country'=>$request->country,
+            'state'=>$request->state,
+            'city'=>$request->city,
+            'address'=>$request->address,
+            'zip_code'=>$request->zip_code,
+            'phone'=>$request->phone,
+            'company'=>$request->company_name,
+            'language'=>$request->language,
+            'currency'=>$request->currency,
 
-    );
-    if($request->hasFile('image')){
-        $image = $request->file('image');
-        $fileName = date('dmY').time().'.'.$image->getClientOriginalExtension();
-        $image->move(public_path("/images"), $fileName);
-        $data['image'] = $fileName;
-    }
-   // $create = Provider::create($data);
-        Provider::where('id',$id)->update($data);
+        );
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $fileName = date('dmY').time().'.'.$image->getClientOriginalExtension();
+            $image->move(public_path("/images"), $fileName);
+            $data['image'] = $fileName;
+        }
+   
+            Provider::where('id',$id)->update($data);
+        //   $data = array(
+        //     'payment_email'=>$request->payment_mail,
+        //     'account_name'=>$request->holder_name,
+        //     'bank_name'=>$request->bank_name,
+        //     'location'=>$request->location,
+        //     'account_number'=>$request->account_number,
+        //     'bit_code'=>$request->bic_code,
+        //     'bank_description'=>$request->description,
     
-    // $bank_data =  Bank::where('id',$id);
+        // );
+      // Bank::where('provider_id',$id)->update($data);
+    // $bank_data =  Bank::where('provider_id',$id);
     // $bank_data->payment_email = $request->payment_mail;
     // $bank_data->account_name = $request->holder_name;
     // $bank_data->bank_name = $request->bank_name;
@@ -112,8 +122,9 @@ class ProviderController extends Controller
     // $bank_data->account_number = $request->account_number;
     // $bank_data->bit_code = $request->bic_code;
     // $bank_data->bank_description = $request->description;
-    
-    // $create->Bank()->save($bank_data);
+    // $bank_data->update();
+  //  dd($bank_data->get());
+   
     return redirect()->route('provider-index');
     }
 

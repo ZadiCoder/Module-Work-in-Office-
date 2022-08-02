@@ -26,26 +26,26 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="exampleInputFirstName">First Name</label>
-                                    <input type="Text" class="form-control" name="first_name" id=" " aria-describedby="emailHelp" placeholder="Enter First Name">
+                                    <label for="exampleInputFirstName">First Name *</label>
+                                    <input type="Text" class="form-control" required name="first_name" id=" " aria-describedby="emailHelp" placeholder="Enter First Name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputLastName">Last Name</label>
-                                    <input type="Text" class="form-control" name="last_name" id="" aria-describedby="emailHelp" placeholder="Enter Last Name">
+                                    <label for="exampleInputLastName">Last Name *</label>
+                                    <input type="Text" class="form-control" required name="last_name" id="" aria-describedby="emailHelp" placeholder="Enter Last Name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword">Email</label>
-                                    <input type="Email" class="form-control" name="email" id="" placeholder="Enter Email">
+                                    <label for="exampleInputPassword">Email *</label>
+                                    <input type="Email" class="form-control" required name="email" id="" placeholder="Enter Email">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="exampleInputPassword">Password</label>
-                                    <input type="password" class="form-control" name="password" id="" placeholder="Password">
+                                    <label for="exampleInputPassword">Password *</label>
+                                    <input type="password" class="form-control" required name="password" id="" placeholder="Password">
                                 </div>         
-                                <label for="exampleFormControlFile1">Select Gender</label>
+                                <label for="exampleFormControlFile1">Select Gender *</label>
                                 <div class="form-group">
-                                    <input  type="radio" name="r_gender" id="" value="Male">
+                                    <input  type="radio" name="r_gender" id=""  value="Male">
                                     <label  for="inlineRadio1">Male</label>
                                 </div>
                                 <div class="form-group">
@@ -54,29 +54,29 @@
                                 </div>      
                            
                                 <div class="form-group">
-                                    <label for="exampleFormControlFile1">Select Image</label>
-                                    <input type="file" class="form-control-file" name="image" id="">
+                                    <label for="exampleFormControlFile1">Select Image *</label>
+                                    <input type="file" class="form-control-file" required name="image" id="">
                                     </div>
                                 </div>          
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputLastName">Phone Number</label>
-                                <input type="text" class="form-control" id="" aria-describedby="emailHelp" name="phone" placeholder="Phone Number">
+                                <label for="exampleInputLastName">Phone Number *</label>
+                                <input type="text" class="form-control" id="" required aria-describedby="emailHelp" name="phone" placeholder="Phone Number">
                             </div>       
                             <div class="form-group">
-                                <label for="exampleInputLastName">Address</label>
-                                <input type="Text" class="form-control" name="address" id="" aria-describedby="emailHelp" placeholder="Enter Address">
+                                <label for="exampleInputLastName">Address *</label>
+                                <input type="Text" class="form-control" required name="address" id="" aria-describedby="emailHelp" placeholder="Enter Address">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputLastName">Zip Code</label>
-                                <input type="number" class="form-control" name="zip_code" id="" aria-describedby="emailHelp" placeholder="Enter Zip Code">
+                                <label for="exampleInputLastName">Zip Code *</label>
+                                <input type="number" class="form-control" required name="zip_code" id="" aria-describedby="emailHelp" placeholder="Enter Zip Code">
                             </div>   
                                 
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="exampleFormControlSelect1">Company</label>
-                                        <select name="company" class="form-control">
+                                        <label for="exampleFormControlSelect1">Company *</label>
+                                        <select name="company" class="form-control" required>
                                            
                                             @foreach ($company as $item)
                                             <option value="{{$item->company_name}}">{{$item->company_name}}</option>
@@ -84,8 +84,8 @@
                                         </select>
                                     </div>   
                                     <div class="form-group">
-                                        <label for="exampleFormControlSelect1">Select Language</label>
-                                        <select name="language" class="form-control">
+                                        <label for="exampleFormControlSelect1">Select Language *</label>
+                                        <select name="language" class="form-control" required>
                                             
                                             @foreach ($language as $item)
                                             <option value="{{$item->language_name}}">{{$item->language_name}}</option>
@@ -93,8 +93,8 @@
                                         </select>
                                     </div>                      
                                     <div class="form-group">
-                                        <label for="exampleFormControlSelect1">Select Currency</label>
-                                        <select name="currency" class="form-control">
+                                        <label for="exampleFormControlSelect1">Select Currency *</label>
+                                        <select name="currency" class="form-control" required>
                                             
                                             @foreach ($currency as $item)
                                             <option value="{{$item->currency_name}}">{{$item->currency_name}}</option>
@@ -104,24 +104,24 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="exampleFormControlSelect1" >Select Country</label>
-                                        <select class="form-control" name="country" id="">
+                                        <label for="exampleFormControlSelect1" >Select Country *</label>
+                                        <select class="form-control" name="country" id="" required>
                                             <option>India</option>
                                             <option>Arabia</option>
                                             <option>Pakistan</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleFormControlSelect1" >Select State</label>
-                                        <select class="form-control" name="state" id="">
+                                        <label for="exampleFormControlSelect1" >Select State *</label>
+                                        <select class="form-control" name="state" id="" required>
                                             <option>Pnjab</option>
                                             <option>Sindh</option>
                                             <option>Balochistan</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleFormControlSelect1">Select City</label>
-                                        <select class="form-control" id="" name="city">
+                                        <label for="exampleFormControlSelect1">Select City *</label>
+                                        <select class="form-control" id="" name="city" required>
                                         <option>Lahore</option>
                                         <option>Karachi</option>
                                         <option>Multan</option>

@@ -145,6 +145,7 @@
                                                 <th>Wallet Balance</th>
                                                 <th>View/Edit Document(s)</th>
                                                 <th>View/Edit Availability</th>
+                                                <th>View/Edit Bank Account</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
@@ -169,7 +170,10 @@
                                                     <td>
                                                         <a href="">Edit Availability</a>
                                                     </td>
-                                                    <td>Deactive</td>
+                                                    <td style="text-align: center">
+                                                        <a href="{{ route('provider-bank-edit',$item->id) }}"><i class="fa-solid fa-square-pen"></a></i>
+                                                    </td>
+                                                    <td style="text-align: center">Deactive</td>
                                                     <td>
                                                         <a href="{{ route('provider-edit',$item->id) }}" class="btn btn-primary" ><i class="fa-solid fa-square-pen"></i></a>
                                                         <a href="{{ route('provider-delete',$item->id) }}"><i class="fa-solid fa-trash-can"></i></a>

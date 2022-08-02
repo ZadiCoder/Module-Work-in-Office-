@@ -6,6 +6,8 @@ use App\Http\Controllers\MultiLanguageController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\BankController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -54,6 +56,11 @@ Route::post('/provider/create',[ProviderController::class,'provider_create'])->n
 Route::get('/provider/edit/{id}',[ProviderController::class,'provider_edit'])->name('provider-edit');
 Route::get('/provider/delete/{id}',[ProviderController::class,'provider_delete'])->name('provider-delete');
 Route::post('/provider/update/{id}',[ProviderController::class,'provider_update'])->name('provider-update');
+//provider Bank
+Route::get('/provider/bank/edit/{id}',[BankController::class,'provider_bank_edit'])->name('provider-bank-edit');
+Route::post('/provider/bank/update/{id}',[BankController::class,'provider_bank_update'])->name('provider-bank-update');
+//provider Documents
+//Route::get()
 
 //Companyy
 Route::get('/company/list',[CompanyController::class,'company_index'])->name('company-index');
