@@ -165,7 +165,7 @@
                                                         <a href=""><i class="fa-solid fa-minus"> </a></i>
                                                     </td>
                                                     <td style="text-align: center">
-                                                        <a href="" ><i class="fa-solid fa-file"></a></i>
+                                                        <a href="{{ route('provider-document-show',$item->id) }}" ><i class="fa-solid fa-file"></a></i>
                                                     </td>
                                                     <td>
                                                         <a href="">Edit Availability</a>

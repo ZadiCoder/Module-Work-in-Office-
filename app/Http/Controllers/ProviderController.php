@@ -132,4 +132,9 @@ class ProviderController extends Controller
         Provider::destroy($id);
         return redirect()->route('provider-index');
     }
+
+    public function provider_document_show($id){
+            $provider = Provider::find($id);
+        return view('provider.document.index',compact('provider'));
+    }
 }

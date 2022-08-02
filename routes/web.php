@@ -7,6 +7,9 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\BankController;
+use App\Http\Controllers\DocumentDriverController;
+use App\Http\Controllers\DocumentLicenseController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -60,7 +63,10 @@ Route::post('/provider/update/{id}',[ProviderController::class,'provider_update'
 Route::get('/provider/bank/edit/{id}',[BankController::class,'provider_bank_edit'])->name('provider-bank-edit');
 Route::post('/provider/bank/update/{id}',[BankController::class,'provider_bank_update'])->name('provider-bank-update');
 //provider Documents
-//Route::get()
+Route::get('/provider/decument/show/{id}',[ProviderController::class,'provider_document_show'])->name('provider-document-show');
+Route::post('/provider/decument/work-experience',[DocumentDriverController::class,'provider_create_work'])->name('provider-create-work');
+Route::post('/provider/decument/license',[DocumentLicenseController::class,'provider_create_license'])->name('provider-create-licenses');
+
 
 //Companyy
 Route::get('/company/list',[CompanyController::class,'company_index'])->name('company-index');
