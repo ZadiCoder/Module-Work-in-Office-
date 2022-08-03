@@ -155,7 +155,7 @@
                                              @foreach ($data as $item)
                                                  <tr>
                                                     <td>{{ $item->first_name }} {{  $item->last_name }}</td>
-                                                    <td>{{ $item->company_name }}</td>
+                                                    <td>{{ $item->company }}</td>
                                                     <td>{{ $item->email }}</td>
                                                     <td>1</td>
                                                     <td>{{ $item->created_at }}</td>

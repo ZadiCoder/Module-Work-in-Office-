@@ -13,105 +13,101 @@
 <body>
 
       <div class="container">
-        <h1 class="text-center"> User</h1>
+        <h1 class="text-center">Company</h1>
         <hr>
-        <div class="row">
-            <h3>Add User</h3>
-            
-            <div class="col-md-12 mt-5">
-               <hr> 
-                <form action="" method="POST" enctype="multipart/form-data">
+       
+            <h3>Add company</h3>
+            <div class="row">
+            <div class="col-md-6 mt-5">
+               
+                <hr> 
+                <form action="{{ route('company-create') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-
-                    <div class="row shadow">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="exampleInputFirstName">First Name</label>
-                                <input type="Text" class="form-control" name="F_Name" id=" " aria-describedby="emailHelp" placeholder="Enter First Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword">Email</label>
-                                <input type="Email" class="form-control" name="Email" id="" placeholder="Enter Email">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="exampleInputLastName">Last Name</label>
-                                <input type="Text" class="form-control" name="L_Name" id="" aria-describedby="emailHelp" placeholder="Enter Last Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword">Password</label>
-                                <input type="password" class="form-control" name="Password" id="" placeholder="Password">
-                            </div>
-                        </div>  
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <input  type="radio" name="R_Gender" id="" value="Male">
-                                        <label  for="inlineRadio1">Male</label>
-                                    </div>
-                                    <div class="form-group">
-                                        <input  type="radio" name="R_Gender" id="" value="Female">
-                                        <label  for="inlineRadio1">Female</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="exampleFormControlSelect1" >Select Country</label>
-                                        <select class="form-control" name="Country" id="">
-                                          <option>India</option>
-                                          <option>Arabia</option>
-                                        </select>
-                                      </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="exampleFormControlFile1">Select Imagine</label>
-                                        <input type="file" class="form-control-file" name="image" id="">
-                                      </div>
-                                </div>
-                            </div>
-                        </div>  
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="exampleInputLastName">Phone Number</label>
-                                        <input type="Text" class="form-control" id="" aria-describedby="emailHelp" name="P_number" placeholder="Phone Number">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="exampleFormControlSelect1">Select Language</label>
-                                        <select class="form-control" id="" name="Language">
-                                          <option>English</option>
-                                          <option>Arabic</option>
-                                        </select>
-                                      </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="exampleFormControlSelect1">Select Currency</label>
-                                        <select class="form-control" id="" name="Currency">
-                                          <option>US Dollar</option>
-                                          <option>UK Pound</option>
-                                          <option>US Australian Dollar</option>
-                                        </select>
-                                      </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Select Status</label>
-                                    <select class="form-control" id="" name="Status">
-                                      <option>Active</option>
-                                      <option>InActive</option>
-                                    </select>
-                                  </div></div>
-                        </div> 
-   
-                        
+                                    <label for="exampleInputFirstName">Company Name *</label>
+                                    <input type="Text" class="form-control" required name="company_name" id=" " aria-describedby="emailHelp" placeholder="Enter First Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword">Email *</label>
+                                    <input type="Email" class="form-control" required name="email" id="" placeholder="Enter Email">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword">Password *</label>
+                                    <input type="password" class="form-control" required name="password" id="" placeholder="Password">
+                                </div>              
+                           
+                                <div class="form-group">
+                                    <label for="exampleFormControlFile1">Select Image *</label>
+                                    <input type="file" class="form-control-file" required name="image" id="">
+                                    </div>
+                                </div>          
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputLastName">Phone Number *</label>
+                                <input type="text" class="form-control" id="" required aria-describedby="emailHelp" name="phone" placeholder="Phone Number">
+                            </div>       
+                            <div class="form-group">
+                                <label for="exampleInputLastName">Address *</label>
+                                <input type="Text" class="form-control" required name="address" id="" aria-describedby="emailHelp" placeholder="Enter Address">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputLastName">Zip Code *</label>
+                                <input type="number" class="form-control" required name="zip_code" id="" aria-describedby="emailHelp" placeholder="Enter Zip Code">
+                            </div>   
+                                
+                            <div class="row">
+                                <div class="col-md-6">
+                                
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Select Language *</label>
+                                        <select name="language" class="form-control" required>
+                                            
+                                            @foreach ($language as $item)
+                                            <option value="{{$item->language_name}}">{{$item->language_name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>                      
+                                    <div class="form-group">
+                                        <label for="exampleInputLastName">VAT Number *</label>
+                                        <input type="number" class="form-control" required name="vta_number" id="" aria-describedby="emailHelp" placeholder="Enter Zip Code">
+                                    </div> 
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1" >Select Country *</label>
+                                        <select class="form-control" name="country" id="" required>
+                                            <option>India</option>
+                                            <option>Arabia</option>
+                                            <option>Pakistan</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1" >Select State *</label>
+                                        <select class="form-control" name="state" id="" required>
+                                            <option>Pnjab</option>
+                                            <option>Sindh</option>
+                                            <option>Balochistan</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Select City *</label>
+                                        <select class="form-control" id="" name="city" required>
+                                        <option>Lahore</option>
+                                        <option>Karachi</option>
+                                        <option>Multan</option>
+                                        <option>Islamabad</option>
+                                        </select>
+                                    </div> 
+                                      
+                                </div>
+
+                                
+                            </div>
+                            
                             <div class="form-group">
                                 <button type="submit" class=" btn btn-primary shadow">Submit</button>
                             </div>  
@@ -122,7 +118,7 @@
                 </form>
             </div>
         </div>
-      </div>
+    
    
 </body>
 </html>

@@ -4,9 +4,11 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <title> Vouchers</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
       
@@ -80,7 +82,7 @@
                  }
 }
         </style>
-    </head> 
+    </head>  
     <!-- END  HEAD-->
     <!-- BEGIN BODY-->
     <body class="padTop53 " >
@@ -114,7 +116,7 @@
                                             <input type="button" value="Reset" class="btn btn-primary my-2 my-sm-0" />
                                         </td>
                                         <td width="30%">
-                                            <a class="btn btn-warning" href="" style="text-align: center;">Add Company</a>
+                                            <a class="btn btn-warning" href="{{ route('company-show') }}" style="text-align: center;">Add Company</a>
                         
                                                </td>
                                     </tr>
@@ -137,7 +139,6 @@
 
                                                 <th>ID</th>
                                                 <th>Company Name</th>
-                                                <th>Providers</th>
                                                 <th>Email</th>
                                                 <th>Mobile</th>
                                                 <th>View/Edit Document(s)</th>
@@ -146,8 +147,24 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                                         
-                                             
+                                                        
+                                             @foreach ($company as $item)
+                                                <tr>
+                                                <td>{{ $item->id }}</td>
+                                                <td>{{ $item->company_name }}</td>
+                                                <td>{{ $item->email }}</td>
+                                                <td>{{ $item->phone }}</td>
+                                                <td style="text-align: center">
+                                                    <a href=""><i class="fa-solid fa-file"></i></a>
+                                                </td>
+                                                <td>{{ $item->status }}</td>
+                                                <td>
+                                                    <a href="" class="btn btn-info" >Edit</a>
+                                                    <a href="" class="btn btn-danger">Delete</a>
+                                                </td>
+                                                </tr> 
+
+                                             @endforeach
                                            
                                         </tbody>
                                     </table>

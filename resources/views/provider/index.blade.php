@@ -161,8 +161,14 @@
                                                     <td>{{ $item->created_at }}</td>
                                                     <td>{{ $item->phone }}</td>
                                                     <td style="text-align: center">
-                                                        <a href=""><i class="fa-solid fa-plus"></a></i> <br>
-                                                        <a href=""><i class="fa-solid fa-minus"> </a></i>
+                                                        @if (!isset($item->wallet))
+                                                        <p class="bg-primary"> 0 </p>
+                                                        @else
+                                                        <p class="bg-primary">{{ $item->wallet }}</p>    
+                                                        @endif
+                                                        
+                                                        <a href="{{ route('provider-add-wallet',$item->id) }}"><i class="fa-solid fa-plus"></a></i> <br>
+                                                        <a href="{{ route('provider-deduct-wallet',$item->id) }}"><i class="fa-solid fa-minus"> </a></i>
                                                     </td>
                                                     <td style="text-align: center">
                                                         <a href="{{ route('provider-document-show',$item->id) }}" ><i class="fa-solid fa-file"></a></i>

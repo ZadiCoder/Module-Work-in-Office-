@@ -115,10 +115,42 @@ class ProviderController extends Controller
     public function provider_search(Request $request){
         //  dd($request->input('search'));
         $search = $request->search;
-        $data = Company::where('company_name', $search)
-       // ->orWhere('value_ar', $search)
+        $data = Provider::where('company', $search)
+        ->orWhere('first_name', $search)
+        ->orWhere('email', $search)
+        ->orWhere('phone', $search)
         ->get();
          //dd($data);
          return view('provider.search',compact('data'));
       }
+
+      public function provider_add_wallet($id){
+        $data = Provider::find($id);
+        return view('provider.wallet.show_add_wallet',compact('data'));
+      }
+
+      public function provider_update_add_wallet(Request $request){
+       $id = $request->id;
+       $data = Provider::find($id);
+       $data->wallet = $request->ammount + $request->wallet;
+       $data->update();
+       return redirect()->route('provider-index');
+      }
+
+      public function provider_deduct_wallet($id){
+       //dd($id);
+        $data = Provider::find($id);
+        return view('provider.wallet.show_deduct_wallet',compact('data'));
+      }
+      public function provider_update_deduct_wallet(Request $request){
+        $id = $request->id;
+            // $ammount = $request->ammount;
+            // $wallet = $request->wallet;
+            // $total = $wallet - $ammount;
+            // dd($total);
+        $data = Provider::find($id);
+        $data->wallet =  $request->wallet - $request->ammount ;
+        $data->update();
+        return redirect()->route('provider-index');
+       }
 }

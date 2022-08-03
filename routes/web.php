@@ -68,9 +68,14 @@ Route::post('/provider/bank/update/{id}',[BankController::class,'provider_bank_u
 Route::get('/provider/decument/show/{id}',[ProviderController::class,'provider_document_show'])->name('provider-document-show');
 Route::post('/provider/decument/work-experience',[DocumentController::class,'provider_create_work'])->name('provider-create-work');
 Route::get('/provider/decument/work/show/{id}',[DocumentController::class,'provider_show_work'])->name('provider-show-work');
-
+//Provider Wallet 
+Route::get('/provider/wallet/add/{id}',[ProviderController::class,'provider_add_wallet'])->name('provider-add-wallet');
+Route::post('/provider/update/add/wallet',[ProviderController::class,'provider_update_add_wallet'])->name('provider-update-add-wallet');
+Route::get('/provider/wallet/deduct/{id}',[ProviderController::class,'provider_deduct_wallet'])->name('provider-deduct-wallet');
+Route::post('/provider/update/deduct/wallet',[ProviderController::class,'provider_update_deduct_wallet'])->name('provider-update-deduct-wallet');
 
 //Companyy
 Route::get('/company/list',[CompanyController::class,'company_index'])->name('company-index');
 Route::get('/company/show',[CompanyController::class,'company_show'])->name('company-show');
+Route::post('/company/create',[CompanyController::class,'company_create'])->name('company-create');
 
