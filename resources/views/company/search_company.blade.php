@@ -148,7 +148,7 @@
                                         </thead>
                                         <tbody>
                                                         
-                                             @foreach ($company as $item)
+                                             @foreach ($data as $item)
                                                 <tr>
                                                 <td>{{ $item->id }}</td>
                                                 <td>{{ $item->company_name }}</td>

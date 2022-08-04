@@ -51,19 +51,10 @@
                                     <input type="password" class="form-control" name="password" value="{{ $provider->password }}" id="" placeholder="Password">
                                 </div>         
                                 <label for="exampleFormControlFile1">Select Gender</label>
-                                {{-- <div class="form-group">
-                                    <input  type="radio" name="r_gender" id="" value="{{ $provider->gender }}">
-                                    <label  for="inlineRadio1">Male</label>
-                                </div>
-                                <div class="form-group">
-                                    <input  type="radio" name="r_gender" id="" value="{{ $provider->gender }}">
-                                    <label  for="inlineRadio1">Female</label>
-                                </div>       --}}
-                               
-                                        <div class="form-control">
-                                            <input type="radio" name="r_gender" value="male " {{ $provider->gender == 'male' ? 'checked' : '' }}  id="actice" /><label for="" class="">Male</label>
-                                            <input type="radio" name="r_gender" value="female" {{ $provider->gender == 'female' ? 'checked' : '' }}  id="deactive" /><label for="" class="">Female</label>
-                                    
+ 
+                                <div class="form-control">
+                                    <input type="radio" name="r_gender" value="male " {{ $provider->gender == 'male' ? 'checked' : '' }}  id="actice" /><label for="" class="">Male</label>
+                                    <input type="radio" name="r_gender" value="female" {{ $provider->gender == 'female' ? 'checked' : '' }}  id="deactive" /><label for="" class="">Female</label>
                                 </div>
                            
                                 <div class="form-group">

@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('city');
             $table->string('address',255);
             $table->integer('zip_code');
-            $table->integer('phone');
+            $table->string('phone');
             $table->string('language');
             $table->integer('VAT');
             $table->enum('status', ['active', 'deactive'])->default('deactive');

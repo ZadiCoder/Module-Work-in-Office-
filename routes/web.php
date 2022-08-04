@@ -78,4 +78,8 @@ Route::post('/provider/update/deduct/wallet',[ProviderController::class,'provide
 Route::get('/company/list',[CompanyController::class,'company_index'])->name('company-index');
 Route::get('/company/show',[CompanyController::class,'company_show'])->name('company-show');
 Route::post('/company/create',[CompanyController::class,'company_create'])->name('company-create');
+Route::get('/company/edit{id}',[CompanyController::class,'company_edit'])->name('company-edit');
+Route::get('/company/delete{id}',[CompanyController::class,'company_delete'])->name('company-delete');
+Route::post('/company/update/{id}',[CompanyController::class,'company_update'])->name('company-update');
+Route::post('/company/search',[CompanyController::class,'company_search'])->name('company-search');
 
