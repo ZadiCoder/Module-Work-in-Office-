@@ -77,14 +77,13 @@ class CompanyController extends Controller
         return redirect()->route('company-index');
     }
     public function company_search(Request $request){
-      //   dd($request->input('search'));
+
         $search = $request->search;
         $data = Company::where('company_name', $search)
         ->orWhere('status', $search)
         ->orWhere('email', $search)
         ->orWhere('phone', $search)
         ->get();
-         //dd($data);
          return view('company.search_company',compact('data'));
       }
 }
