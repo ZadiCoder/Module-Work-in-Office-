@@ -8,8 +8,7 @@ use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\BankController;
 use App\Http\Controllers\DocumentController;
-
-
+use App\Http\Controllers\DocumentCompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,4 +81,12 @@ Route::get('/company/edit{id}',[CompanyController::class,'company_edit'])->name(
 Route::get('/company/delete{id}',[CompanyController::class,'company_delete'])->name('company-delete');
 Route::post('/company/update/{id}',[CompanyController::class,'company_update'])->name('company-update');
 Route::post('/company/search',[CompanyController::class,'company_search'])->name('company-search');
+
+//Company's Document company-document-work
+Route::get('/company/decument/show/{id}',[DocumentCompanyController::class,'company_document_show'])->name('company-document-show');
+Route::post('/company/decument/create',[DocumentCompanyController::class,'company_document_create'])->name('company-document-create');
+Route::get('/company/decument/work/{id}',[DocumentCompanyController::class,'company_document_work'])->name('company-document-work');
+Route::get('/company/decument/work/{id}',[DocumentCompanyController::class,'company_document_work'])->name('company-document-work');
+Route::get('/company/decument/delete/{id}',[DocumentCompanyController::class,'company_document_delete'])->name('company-document-delete');
+
 

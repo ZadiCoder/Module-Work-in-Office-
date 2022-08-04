@@ -155,7 +155,7 @@
                                                 <td>{{ $item->email }}</td>
                                                 <td>{{ $item->phone }}</td>
                                                 <td style="text-align: center">
-                                                    <a href=""><i class="fa-solid fa-file"></i></a>
+                                                    <a href="{{ route('company-document-show',$item->id) }}"><i class="fa-solid fa-file"></i></a>
                                                 </td>
                                                 <td>{{ $item->status }}</td>
                                                 <td>
