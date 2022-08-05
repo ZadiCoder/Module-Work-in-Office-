@@ -9,6 +9,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\BankController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\DocumentCompanyController;
+use App\Http\Controllers\UserInfoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,3 +91,13 @@ Route::get('/company/decument/work/{id}',[DocumentCompanyController::class,'comp
 Route::get('/company/decument/delete/{id}',[DocumentCompanyController::class,'company_document_delete'])->name('company-document-delete');
 
 
+//User 
+Route::get('/', [UserInfoController::class,'index'])->name('home');
+Route::get('/create', [UserInfoController::class,'create'])->name('create');
+Route::post('/store', [UserInfoController::class,'store'])->name('store');
+Route::get('/wallet/{id}',[UserInfoController::class,'wallet'])->name('wallet');
+Route::post('/wallet/{id}',[UserInfoController::class,'wallet_edit'])->name('Change_wallet');
+Route::get('/edit/{id}' , [UserInfoController::class,'edit'])->name('edit');
+Route::post('/edit/{id}' , [UserInfoController::class,'edit_form'])->name('edit_post');
+Route::post('/search' , [UserInfoController::class,'show'])->name('search');
+Route::get('/delete/{id}', [UserInfoController::class,'delete'])->name('delete');
